@@ -6,7 +6,7 @@ This project presents an in-depth SQL-based analysis of historical stock market 
  -  [Market Volume Insights](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS/edit/main/README.md#market-volume-insights)
  -  [Volatility Analysis](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS/edit/main/README.md#volatility-analysis)
  -  [Performance Metrics](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS/edit/main/README.md#performance-metrics)
- -  
+    
 ## Market Volume Insights
 - **Which date in the sample saw the largest overall trading volume? On that date, which two stocks were traded most?**
 ```SQL
