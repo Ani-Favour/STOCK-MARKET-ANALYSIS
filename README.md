@@ -145,8 +145,47 @@ ORDER BY percent_increase DESC
 |AYI |	67.14 |
 |NVDA |	63.74 |
 
+- **What was the average daily return (close - open) for each stock?**
+```SQL
+SELECT symbol,
+ROUND(AVG([close]-[open]), 2) as AVG_Daily_Return
+FROM [S&P_500_Stock Prices_2014-2017]
+Group by symbol
+Order by avg_daily_return DESC
+```
+|symbol |	AVG_Daily_Return |
+|------ |------------- |
+|EQIX |	0.21 |
+|SHW |	0.17 |
+|MTD |	0.16 |
+|HUM |	0.14 |
+|TDG |	0.14 |
 
 
+- **How did the top 5 most traded stocks in 2014 perform by the end of 2017?**
+```SQL
+SELECT TOP 5 symbol,
+ROUND(SUM(CAST(volume AS BIGINT)), 2) AS Total_Volume
+FROM [S&P_500_Stock Prices_2014-2017]
+WHERE date >= '2014-01-01' AND date <= '2014-12-31'
+GROUP BY symbol
+ORDER BY Total_Volume DESC
+
+
+SELECT symbol,
+MIN(CASE WHEN YEAR(date) = 2014 THEN [close] END) AS Close_2014,
+MAX(CASE WHEN YEAR(date) = 2017 THEN [close] END) AS Close_2017
+FROM [S&P_500_Stock Prices_2014-2017]
+Where symbol IN ('BAC', 'AAPL', 'FB', 'MSFT', 'CSCO')
+GROUP BY symbol
+```
+|symbol |	Close_2014 |	Close_2017 |
+|------- | --------- | --------- |
+|MSFT |	34.98 |	86.85 |
+|AAPL |	71.4 |	176.42 |
+|BAC |	14.51 |	29.88 |
+|CSCO |	21.35 |	38.74 |
+|FB |	53.53 |	183.03 |
 
 
 
