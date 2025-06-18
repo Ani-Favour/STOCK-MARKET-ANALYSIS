@@ -6,8 +6,10 @@ This project presents an in-depth SQL-based analysis of historical stock market 
  -  [Market Volume Insights](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS#market-volume-insights)
  -  [Volatility Analysis](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS#volatility-analysis)
  -  [Performance Metrics](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS?tab=readme-ov-file#performance-metrics)
+ -  [Temporal Patterns](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS#temporal-patterns)
+ -  [Pattern Recognition](https://github.com/Ani-Favour/STOCK-MARKET-ANALYSIS#pattern-recognition)
     
-## Market Volume Insights
+## Market Volume Insights:
 - **Identified dates with the highest overall trading volume.**
 ```SQL
 SELECT TOP 3 [date], symbol,
@@ -56,7 +58,7 @@ ORDER BY Average_Daily_Trading_Volume DESC
 |F | 32914300 |
 
 
-## Volatility Analysis
+## Volatility Analysis:
 - **Detected the most volatile trading days across the market.**
 ```SQL
 SELECT [date],
@@ -110,7 +112,7 @@ ORDER BY Volatility_Index DESC
 |2016-11-09 |	4.56 |
 |2016-01-13 |	4.35 |
 
-## Performance Metrics
+## Performance Metrics:
 - **Found best performing stocks in 2015 by % price increase.**
 ```SQL
   WITH RankedPrices AS (
