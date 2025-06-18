@@ -187,8 +187,68 @@ GROUP BY symbol
 |CSCO |	21.35 |	38.74 |
 |FB |	53.53 |	183.03 |
 
+## Temporal Patterns:
+- **Which day of the week sees the highest average close prices across the market?**
+```SQL
+SELECT 
+DATENAME(WEEKDAY, [date]) AS day_of_week,
+AVG([close]) AS avg_close_price
+FROM [S&P_500_Stock Prices_2014-2017]
+GROUP BY DATENAME(WEEKDAY, date)
+ORDER BY avg_close_price DESC
+```
+|day_of_week |	avg_close_price |
+|--------- |------------- |
+|Friday|	86.51 |
+|Wednesday|	86.42 |
+|Thursday|	86.32 |
+|Monday |	86.32 |
+|Tuesday |	86.27 |
+
+- **How do monthly average closing prices for a stock trend over time?**
+ ```SQL
+Alter table [S&P_500_Stock Prices_2014-2017]
+ Add [Month] Varchar(50)
+
+ Update [S&P_500_Stock Prices_2014-2017]
+ Set [Month] = Datename(Month, [date])
 
 
+SELECT [Month],
+AVG([close]) AS avg_close_price
+FROM [S&P_500_Stock Prices_2014-2017]
+WHERE symbol = 'ABBV'
+GROUP BY [Month]
+ORDER BY 
+    Case [Month]	
+		WHEN 'January' THEN 1
+        WHEN 'February' THEN 2
+        WHEN 'March' THEN 3
+        WHEN 'April' THEN 4
+        WHEN 'May' THEN 5
+        WHEN 'June' THEN 6
+        WHEN 'July' THEN 7
+        WHEN 'August' THEN 8
+        WHEN 'September' THEN 9
+        WHEN 'October' THEN 10
+        WHEN 'November' THEN 11
+        WHEN 'December' THEN 12
+    END
+```
+|Month |	avg_close_price |
+|----- | ------------- |
+|January |	57.89 |
+|February |	56.12 |
+|March |	58.11 |
+|April |	59.03 |
+|May |	61.56 |
+|June |	63.70 |
+|July |	65.03 |
+|August |	64.93 |
+|September |	66.06 |
+|October |	66.23 |
+|November |	70.47 |
+|December |	70.22 |
 
 
 
