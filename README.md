@@ -41,7 +41,7 @@ ORDER BY Average_Trading_Volume DESC
 |Tuesday |	4188689 |
 |Monday |	4031171 |
 
-- **Determined stocks with the highest average daily trading volumes.?**
+- **Determined stocks with the highest average daily trading volumes.**
 ```SQL
 SELECT symbol,
 AVG(CAST(volume AS BIGINT)) AS Average_Daily_Trading_Volume
@@ -147,7 +147,7 @@ ORDER BY percent_increase DESC
 |AYI |	67.14 |
 |NVDA |	63.74 |
 
-- **What was the average daily return (close - open) for each stock?**
+- **average daily return (close - open) for each stock**
 ```SQL
 SELECT symbol,
 ROUND(AVG([close]-[open]), 2) as AVG_Daily_Return
@@ -164,7 +164,7 @@ Order by avg_daily_return DESC
 |TDG |	0.14 |
 
 
-- **How did the top 5 most traded stocks in 2014 perform by the end of 2017?**
+- **Compared 2014 to 2017 closing prices for top traded stocks**
 ```SQL
 SELECT TOP 5 symbol,
 ROUND(SUM(CAST(volume AS BIGINT)), 2) AS Total_Volume
